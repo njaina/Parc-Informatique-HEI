@@ -15,27 +15,32 @@ public class SoftwareController {
     private final Software_Service service;
 
     @PostMapping("/software")
-    public Software post( @RequestBody Software software){
+    public Software post(@RequestBody Software software) {
         return service.create(software);
     }
+
     @GetMapping("/software")
     public List<Software> getAll() {
         return service.readAll();
     }
+
     @GetMapping("/software/id/{id}")
-    public Software get(@PathVariable Integer id){
+    public Software get(@PathVariable int id) {
         return service.read(id);
     }
+
     @PutMapping("/software/update")
-    public Software putSoftware(@RequestBody Software software){
+    public Software putSoftware(@RequestBody Software software) {
         return service.update(software);
     }
+
     @DeleteMapping("/delete/software")
-    public String deleteAll(){
+    public String deleteAll() {
         return service.deleteALl();
     }
+
     @DeleteMapping("/delete/software/{id}")
-    public String delete(@PathVariable Integer id){
+    public String delete(@PathVariable int id) {
         return service.deleteById(id);
     }
 }

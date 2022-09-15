@@ -20,7 +20,7 @@ public class Material_Service {
         return repository.findAll();
     }
 
-    public Material read(Integer id) {
+    public Material read(int id) {
         return repository.findById(id).get();
     }
 
@@ -35,7 +35,7 @@ public class Material_Service {
         return "Delete all resource successfully";
     }
 
-    public String deleteById(Integer id) {
+    public String deleteById(int id) {
         repository.deleteById(id);
         return "The material number :" + id + ", has been deleted successfully";
     }

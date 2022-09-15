@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,11 +14,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Material_Network {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_material", nullable = false)
+    @JoinColumn(name = "fk_material_id", nullable = false)
     private Material material;
     @ManyToOne
-    @JoinColumn(name = "id_network", nullable = false)
+    @JoinColumn(name = "fk_network_id", nullable = false)
     private Network network;
 }

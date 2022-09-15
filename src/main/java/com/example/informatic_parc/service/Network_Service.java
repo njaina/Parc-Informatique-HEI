@@ -20,7 +20,7 @@ public class Network_Service {
     public List<Network> readAll() {
         return repository.findAll();
     }
-    public Network read(Integer id){
+    public Network read(int id){
         return repository.findById(id).get();
     }
 
@@ -45,7 +45,7 @@ public class Network_Service {
         repository.deleteAll();
         return "The resource hase been deleted successfully";
     }
-    public String deleteById(Integer id){
+    public String deleteById(int id){
         repository.deleteById(id);
         return "The service number :"+id+", has been deleted successfully";
     }

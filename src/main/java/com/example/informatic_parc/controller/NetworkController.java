@@ -13,37 +13,41 @@ import java.util.List;
 
 public class NetworkController {
     private final Network_Service service;
+
     @PostMapping("/network")
-    public Network post( @RequestBody Network network){
+    public Network post(@RequestBody Network network) {
         return service.create(network);
     }
+
     @GetMapping("/network")
-    public List<Network> readALl(){
+    public List<Network> readALl() {
         return service.readAll();
     }
 
     @GetMapping("/network/id/{id}")
-    public Network read( @PathVariable Integer id){
+    public Network read(@PathVariable int id) {
         return service.read(id);
     }
-    /**@PatchMapping("/network/patchName/{name}")
-    public Network updateName(Network network){
-        return service.updateName(network);
-    }
-    @PatchMapping("/network/patchType/{type}")
-    public Network updateType(Network network){
-        return service.updateType(network);
-    }**/
+
+    /**
+     * &#064;PatchMapping("/network/patchName/ public Network updateName(Network network){
+     * return service.updateName(network);
+     * }  &#064;PatchMapping("/network/patchType/ public Network updateType(Network network){
+     * return service.updateType(network);
+     * }
+     **/
     @PutMapping("/network/update")
-    public Network update( @RequestBody Network network){
+    public Network update(@RequestBody Network network) {
         return service.update(network);
     }
+
     @DeleteMapping("/delete/network")
-    public String deleteAll(){
+    public String deleteAll() {
         return service.deleteAll();
     }
+
     @DeleteMapping("/delete/network/{id}")
-    public String delete(@PathVariable Integer id){
+    public String delete(@PathVariable Integer id) {
         return service.deleteById(id);
     }
 }

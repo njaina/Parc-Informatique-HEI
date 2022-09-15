@@ -11,7 +11,24 @@ import java.util.List;
 @Service
 public class MaterialNetwork {
     private MaterialNetworkRepository repository;
-    public List<Material_Network> readAll(){
+
+    public Material_Network save(Material_Network toSave) {
+        return repository.save(toSave);
+    }
+
+    public List<Material_Network> readAll() {
         return repository.findAll();
+    }
+
+    public Material_Network read(int id) {
+        return repository.findById(id).get();
+    }
+
+    private List<Material_Network> finByMaterial(int id) {
+        return repository.findMaterial_NetworksByMaterial(id);
+    }
+
+    private List<Material_Network> findByNetwork(int id) {
+        return repository.findMaterial_NetworksByNetwork(id);
     }
 }

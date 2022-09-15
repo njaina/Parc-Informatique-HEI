@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @AllArgsConstructor
@@ -18,11 +15,12 @@ import java.io.Serializable;
 @Entity
 public class Material_Software implements Serializable {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_material",nullable = false)
+    @JoinColumn(name = "fk_material_id",nullable = false)
     private Material material;
     @ManyToOne
-    @JoinColumn(name = "id_software", nullable = false)
+    @JoinColumn(name = "fk_software_id", nullable = false)
     private Software software;
 }

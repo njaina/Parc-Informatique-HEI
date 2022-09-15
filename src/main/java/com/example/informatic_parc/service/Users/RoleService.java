@@ -12,4 +12,7 @@ public class RoleService {
     public Roles addRole(Roles role){
         return repository.save(role);
     }
+    public Roles getAll(){
+        return (Roles) repository.findAll();
+    }
 }

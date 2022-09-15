@@ -19,7 +19,7 @@ public class Software_Service {
     public List<Software> readAll() {
         return repository.findAll();
     }
-    public Software read(Integer id){
+    public Software read(int id){
         return  repository.findById(id).get();
     }
     public Software update(Software currentSoftware){
@@ -31,7 +31,7 @@ public class Software_Service {
         repository.deleteAll();
         return "Deleted all ressources with success";
     }
-    public String deleteById(Integer id){
+    public String deleteById(int id){
         repository.deleteById(id);
         return "The entity number :" +id+ ",has been deleted successfully";
     }

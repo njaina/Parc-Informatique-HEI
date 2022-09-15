@@ -14,8 +14,9 @@ import javax.persistence.*;
 @Entity
 public class Material {
     @Id
-    @Column(name = "id_material")
-    private Integer idMaterial;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "material_id")
+    private int idMaterial;
     @Column(name = "material_name", nullable = false, length = 100)
     private String name;
 }

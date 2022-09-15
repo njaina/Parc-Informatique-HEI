@@ -14,8 +14,9 @@ import javax.persistence.*;
 @Entity
 public class Network {
     @Id
-    @Column(name = "id_network")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "network_id")
+    private int id;
     @Column(name = "network_name", nullable = false)
     private String name;
     @Column(name = "network_type",nullable = false)

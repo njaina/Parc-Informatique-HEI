@@ -14,28 +14,34 @@ import java.util.List;
 
 public class MaterialController {
     private final Material_Service service;
+
     @PostMapping("/materials")
-    public Material post( @RequestBody Material material){
+    public Material post(@RequestBody Material material) {
         return service.create(material);
     }
+
     @GetMapping("/materials")
-    public List<Material> readAll(){
+    public List<Material> readAll() {
         return service.readAll();
     }
+
     @GetMapping("/materials/id/{id}")
-    public Material read( @PathVariable Integer id){
+    public Material read(@PathVariable int id) {
         return service.read(id);
     }
+
     @PutMapping("/materials/update")
-    public Material update( @RequestBody Material material){
+    public Material update(@RequestBody Material material) {
         return service.update(material);
     }
+
     @DeleteMapping("/delete/materials")
-    public void deleteAll(){
-         service.deleteAll();
+    public void deleteAll() {
+        service.deleteAll();
     }
+
     @DeleteMapping("/delete/materials/{id}")
-    public void delete( @PathVariable Integer id){
+    public void delete(@PathVariable Integer id) {
         service.deleteById(id);
     }
 }
