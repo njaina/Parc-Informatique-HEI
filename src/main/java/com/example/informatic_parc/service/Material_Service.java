@@ -10,8 +10,33 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class Material_Service {
-    private final Material_Repository materialRepository;
-    public List<Material> findAll (){
-        return materialRepository.findAll();
+    private final Material_Repository repository;
+
+    public Material create(Material material) {
+        return repository.save(material);
+    }
+
+    public List<Material> readAll() {
+        return repository.findAll();
+    }
+
+    public Material read(Integer id) {
+        return repository.findById(id).get();
+    }
+
+    public Material update(Material currentMaterial) {
+        Material Update = repository.findById(currentMaterial.getIdMaterial()).get();
+        Update.setName(Update.getName());
+        return repository.save(Update);
+    }
+
+    public String deleteAll() {
+        repository.deleteAll();
+        return "Delete all resource successfully";
+    }
+
+    public String deleteById(Integer id) {
+        repository.deleteById(id);
+        return "The material number :" + id + ", has been deleted successfully";
     }
 }

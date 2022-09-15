@@ -1,6 +1,9 @@
 package com.example.informatic_parc.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -12,11 +15,7 @@ import javax.persistence.*;
 public class Software {
     @Id
     @Column(name = "id_software")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer idSoftware;
-    @Column(name = "name", length = 50, nullable = false)
-    private String SoftwareName;
-    @Column(name = "version",nullable = false)
-    private String SoftwareVersion;
-
+    private Integer id;
+    @Column(name = "software_name", length = 50, nullable = false)
+    private String name;
 }

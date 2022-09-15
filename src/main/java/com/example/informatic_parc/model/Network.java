@@ -14,11 +14,10 @@ import javax.persistence.*;
 @Entity
 public class Network {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer idSource;
+    @Column(name = "id_network")
+    private Integer id;
     @Column(name = "network_name", nullable = false)
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "type", nullable = false)
-    private Network_Types networkType;
+    @Column(name = "network_type",nullable = false)
+    private String type;
 }

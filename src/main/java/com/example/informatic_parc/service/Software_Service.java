@@ -11,8 +11,28 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Software_Service {
-    private final Software_Repository softwareRepository;
-    public List<Software> getAll(){
-        return softwareRepository.findAll();
+    private final Software_Repository repository;
+
+    public Software create (Software software){
+        return repository.save(software);
+    }
+    public List<Software> readAll() {
+        return repository.findAll();
+    }
+    public Software read(Integer id){
+        return  repository.findById(id).get();
+    }
+    public Software update(Software currentSoftware){
+        Software Update = repository.findById(currentSoftware.getId()).get();
+        Update.setName(Update.getName());
+        return Update;
+    }
+    public String deleteALl(){
+        repository.deleteAll();
+        return "Deleted all ressources with success";
+    }
+    public String deleteById(Integer id){
+        repository.deleteById(id);
+        return "The entity number :" +id+ ",has been deleted successfully";
     }
 }
